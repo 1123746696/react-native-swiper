@@ -358,13 +358,13 @@ export default class extends Component {
         e.nativeEvent.contentOffset = {y: e.nativeEvent.position * this.state.height}
       }
     }
-
+    let positon =e.nativeEvent.position
     this.updateIndex(e.nativeEvent.contentOffset, this.state.dir, () => {
       this.autoplay()
       this.loopJump()
 
       // if `onMomentumScrollEnd` registered will be called here
-      this.props.onMomentumScrollEnd && this.props.onMomentumScrollEnd(e, this.fullState(), this)
+      this.props.onMomentumScrollEnd && this.props.onMomentumScrollEnd(positon, this.fullState(), this)
     })
   }
 
